@@ -10,6 +10,11 @@ export function getAllFromTable(tableName) {
    return ls.get(tableName);
 }
 
-export function removeFromTable(tableName, id) {}
+export function removeFromTable(tableName, id) {
+   let tableData = ls.get(tableName);
+   tableData.splice(id - 1, 1);
+   ls.set(tableName, tableData);
+   return tableData;
+}
 
 export function updateTable(tableName, object) {}
