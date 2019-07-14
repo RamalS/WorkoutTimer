@@ -21,7 +21,7 @@
 .workout-bar button .start {
    display: grid;
    grid-template-columns: auto auto;
-   background: #6e7271;
+   background: #1e2019;
    height: 35px;
    margin-top: 7px;
    color: #ffffff;
@@ -35,5 +35,5 @@
 }
 
 .workout-bar button .start span {
-   margin-top: 8px;
+   margin-top: 9px;
 }

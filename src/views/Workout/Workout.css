@@ -4,3 +4,9 @@
     height: 100%;
     float: left;
 }
+
+.workout .add-excercise{
+    width: fit-content;
+    display: block;
+    margin: auto;
+}

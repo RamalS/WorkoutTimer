@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import WorkoutBar from "./components/WorkoutBar";
 import Rep from "./components/Rep";
+import MaterialIcon from "material-icons-react";
 
 import "./Workout.css";
 
@@ -25,6 +26,11 @@ class Workout extends Component {
                {workout.repetition.map((data, i) => (
                   <Rep key={i} data={data} />
                ))}
+               <div className="add-excercise">
+                  <button>
+                     <MaterialIcon icon="add_circle" size={40} />
+                  </button>
+               </div>
             </div>
          </React.Fragment>
       );
