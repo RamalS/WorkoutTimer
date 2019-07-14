@@ -1,25 +1,21 @@
 .main {
    display: grid;
-   grid-template-rows: 95% auto;
-   background-image: url("../../assets//images/main_background.jpg");
+   grid-template-rows: 90% auto;
+   background-image: url("../../assets//images/main_background-min.jpg");
    background-size: cover;
    background-position-x: 50%;
    height: 100%;
 }
 
 .main .my-workout {
+   background: #f5f5f5;
+   color: #000000;
    width: 85%;
    margin: auto;
    display: block;
+   border-radius: 5px;
    text-align: center;
-   padding-top: 570px;;
+   font-size: 1.2em;
+   padding: 10px;
 }
 
-.main .my-workout button {
-   background: #f5f5f5;
-   width: 100%;
-   height: 40px;
-   font-size: 1.2em;
-   border: none;
-   border-radius: 5px;
-}

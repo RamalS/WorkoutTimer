@@ -1,0 +1,20 @@
+.my-workouts {
+   float: left;
+   margin: 0px;
+   background: #1e2019;
+   width: 100%;
+   height: 100%;
+}
+
+.my-workouts .create-workout {
+   background: #6e7271;
+   color: #f3e9dc;
+   border: none;
+   width: 90%;
+   padding: 15px 0;
+   text-align: center;
+   font-size: 1em;
+   margin: auto;
+   margin-top: 50px;
+   display: block;
+}
