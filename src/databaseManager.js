@@ -1,8 +1,15 @@
 import ls from "local-storage";
 
-export function addToDatabase(table, object) {}
+export function addToTable(tableName, object) {
+   if (ls.get(tableName) !== null)
+      ls.set(tableName, [...ls.get(tableName), object]);
+   else ls.set(tableName, [object]);
+}
 
-export function removeFromTable(table, id){}
+export function getAllFromTable(tableName) {
+   return ls.get(tableName);
+}
 
-export function updateTable(table, object){}
+export function removeFromTable(tableName, id) {}
 
+export function updateTable(tableName, object) {}
