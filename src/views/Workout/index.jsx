@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import WorkoutBar from "./components/WorkoutBar";
 import Rep from "./components/Rep";
 
 import "./Workout.css";
@@ -20,9 +21,9 @@ class Workout extends Component {
       return (
          <React.Fragment>
             <div className="workout">
-               <h1>{workout.name}</h1>
+               <WorkoutBar name={workout.name} />
                {workout.repetition.map((data, i) => (
-                  <Rep key={i} data={data}/>
+                  <Rep key={i} data={data} />
                ))}
             </div>
          </React.Fragment>
