@@ -9,7 +9,7 @@ class Workout extends Component {
       const { data } = this.props;
       return (
          <React.Fragment>
-            <Link to={`/myworkouts/${data.name}`}>
+            <Link to={`/workout/${data.name}`}>
                <div className="workoutt">
                   <div className="name">
                      <p>{data.name}</p>
