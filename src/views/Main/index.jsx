@@ -10,7 +10,7 @@ class Main extends Component {
          <React.Fragment>
             <div className="main">
                <div />
-               <Link to="/myworkouts">
+               <Link to="/my-workouts">
                   <div className="my-workout">My workouts</div>
                </Link>
             </div>

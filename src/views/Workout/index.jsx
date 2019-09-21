@@ -17,6 +17,8 @@ class Workout extends Component {
          ]
       }
    };
+
+
    render() {
       const { workout } = this.state;
       return (
