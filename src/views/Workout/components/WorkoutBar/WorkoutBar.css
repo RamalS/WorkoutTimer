@@ -1,0 +1,39 @@
+.workout-bar {
+   display: grid;
+   grid-template-columns: 75% auto;
+   height: 50px;
+   background: #ad343e;
+   color: #333333;
+   margin-bottom: 40px;
+   border-bottom: #f3e9dc;
+}
+
+.workout-bar h2 {
+   padding-top: 10px;
+   padding-left: 10px;
+   color: #ffffff;
+}
+
+.workout-bar button{
+    height: fit-content;
+}
+
+.workout-bar button .start {
+   display: grid;
+   grid-template-columns: auto auto;
+   background: #1e2019;
+   height: 35px;
+   margin-top: 7px;
+   color: #ffffff;
+   border-radius: 20px 0 0 20px;
+}
+
+.workout-bar button .start i {
+   margin-bottom: 10px;
+   width: 20px;
+   margin-top: 5px;
+}
+
+.workout-bar button .start span {
+   margin-top: 9px;
+}

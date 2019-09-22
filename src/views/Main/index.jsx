@@ -4,12 +4,13 @@ import "./Main.css";
 
 class Main extends Component {
    state = {};
+
    render() {
       return (
          <React.Fragment>
             <div className="main">
                <div />
-               <Link to="/myworkouts">
+               <Link to="/my-workouts">
                   <div className="my-workout">My workouts</div>
                </Link>
             </div>

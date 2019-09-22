@@ -1,0 +1,21 @@
+.rep {
+   display: grid;
+   grid-template-columns: 80% auto;
+   background: #1e2019;
+   width: 90%;
+   height: 50px;
+   margin: 20px auto;
+   border-radius: 10px;
+}
+
+.type {
+   padding: 15px 10px;
+   color: #f3e9dc;
+}
+
+.duration {
+   padding: 15px 20px;
+   background: #ad343e;
+   color: #f3e9dc;
+   border-radius: 0 10px 10px 0;
+}

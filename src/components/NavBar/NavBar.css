@@ -1,0 +1,18 @@
+.nav-bar {
+   display: grid;
+   grid-template-columns: 85% auto;
+   height: 50px;
+   background: #ad343e;
+   color: #333333;
+   border-bottom: #f3e9dc;
+}
+
+.nav-bar h2 {
+   padding-top: 10px;
+   padding-left: 10px;
+   color: #ffffff;
+}
+
+.nav-bar .back a i{
+   margin-top: 5px;
+}
