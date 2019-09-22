@@ -14,7 +14,7 @@ function App() {
             <Route component={Main} exact path="/" />
             <Route component={MyWorkouts} path="/my-workouts" />
             <Route component={CreateWorkout} path="/create-workout" />
-            <Route component={Workout} path="/workout" />
+            <Route component={Workout} path="/workout/:id" />
          </Router>
       </div>
    );

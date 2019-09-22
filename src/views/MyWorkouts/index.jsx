@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-//custom components
+// custom components
 import WorkoutGrid from "./components/WorkoutGrid";
 import NavBar from "../../components/NavBar";
-//services
+// services
 import WorkoutService from "../../Service/Storage/WorkoutService";
 
 import "./MyWorkouts.css";
@@ -18,15 +18,13 @@ class MyWorkouts extends Component {
 
    componentDidMount() {
       this.setState({ ...this.state, workouts: WorkoutService.find() });
-      let obj = {id: "k0ustdvk", name: "Workout333333", workouts: {}};
-      WorkoutService.update(obj)
    }
 
    render() {
       const { workouts } = this.state;
       return (
          <React.Fragment>
-            <NavBar name="My workouts" />
+            <NavBar name="My workouts" path="/" />
             <div className="my-workouts">
                <WorkoutGrid workouts={workouts} />
                <Link to="/create-workout">

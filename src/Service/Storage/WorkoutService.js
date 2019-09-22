@@ -8,10 +8,10 @@ import uniqid from "uniqid";
 
 export default class WorkoutService {
    static create(name) {
-      addToTable("workout", { id: uniqid(), name, workouts: {} });
+      addToTable("workout", { id: uniqid(), name, workouts: [] });
    }
 
-   static find(includeItems) {
+   static find(includeItems, id) {
       const workouts = getAllFromTable("workout");
       let search = workouts;
 
@@ -21,6 +21,10 @@ export default class WorkoutService {
 
       if (includeItems === undefined) {
          search = workoutNames;
+      }
+
+      if (id) {
+         search = search.find(s => s.id === id);
       }
 
       return search;

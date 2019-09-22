@@ -1,23 +1,26 @@
 import React, { Component } from "react";
+// custom components
 import WorkoutBar from "./components/WorkoutBar";
 import Rep from "./components/Rep";
-import MaterialIcon from "material-icons-react";
+import AddExcercise from "./components/AddExcercise";
+// services
+import JobService from "../../Service/Storage/WorkoutService";
 
 import "./Workout.css";
 
 class Workout extends Component {
    state = {
       workout: {
-         name: "workout1",
-         repetition: [
-            { type: "excercise", duration: 30 },
-            { type: "rest", duration: 30 },
-            { type: "excercise", duration: 30 },
-            { type: "rest", duration: 30 }
-         ]
+         name: "",
+         workouts: []
       }
    };
 
+   componentDidMount() {
+      const { id } = this.props.match.params;
+      const workout = JobService.find("workouts", id);
+      this.setState({ ...this.state, workout });
+   }
 
    render() {
       const { workout } = this.state;
@@ -25,14 +28,10 @@ class Workout extends Component {
          <React.Fragment>
             <div className="workout">
                <WorkoutBar name={workout.name} />
-               {workout.repetition.map((data, i) => (
+               {workout.workouts.map((data, i) => (
                   <Rep key={i} data={data} />
                ))}
-               <div className="add-excercise">
-                  <button>
-                     <MaterialIcon icon="add_circle" size={40} />
-                  </button>
-               </div>
+               <AddExcercise />
             </div>
          </React.Fragment>
       );

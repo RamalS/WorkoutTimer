@@ -1,6 +1,6 @@
 .nav-bar {
    display: grid;
-   grid-template-columns: 75% auto;
+   grid-template-columns: 85% auto;
    height: 50px;
    background: #ad343e;
    color: #333333;
@@ -11,4 +11,8 @@
    padding-top: 10px;
    padding-left: 10px;
    color: #ffffff;
+}
+
+.nav-bar .back a i{
+   margin-top: 5px;
 }
