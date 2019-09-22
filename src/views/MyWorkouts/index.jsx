@@ -18,7 +18,8 @@ class MyWorkouts extends Component {
 
    componentDidMount() {
       this.setState({ ...this.state, workouts: WorkoutService.find() });
-      WorkoutService.delete("k0uno1ba");
+      let obj = {id: "k0ustdvk", name: "Workout333333", workouts: {}};
+      WorkoutService.update(obj)
    }
 
    render() {

@@ -32,4 +32,9 @@ export const removeFromTable = (tableName, id) => {
    return items;
 };
 
-export const updateTable = (tableName, object) => {};
+export const updateTable = (tableName, object) => {
+   let items = ls.get(tableName);
+   let data = items.find(d => d.id === object.id);
+   items.splice(items.indexOf(data), 1, object);
+   ls.set(tableName, items);
+};

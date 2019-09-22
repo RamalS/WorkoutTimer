@@ -1,7 +1,8 @@
 import {
    addToTable,
    getAllFromTable,
-   removeFromTable
+   removeFromTable,
+   updateTable
 } from "../StorageService";
 import uniqid from "uniqid";
 
@@ -10,16 +11,26 @@ export default class WorkoutService {
       addToTable("workout", { id: uniqid(), name, workouts: {} });
    }
 
-   static find() {
+   static find(includeItems) {
       const workouts = getAllFromTable("workout");
+      let search = workouts;
+
       const workoutNames = workouts.map(workout => {
-         return { name: workout.name };
+         return { id: workout.id, name: workout.name };
       });
 
-      return workoutNames;
+      if (includeItems === undefined) {
+         search = workoutNames;
+      }
+
+      return search;
    }
 
    static delete(id) {
       removeFromTable("workout", id);
+   }
+
+   static update(object) {
+      updateTable("workout", object);
    }
 }
