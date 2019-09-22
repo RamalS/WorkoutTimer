@@ -1,17 +1,19 @@
 import React, { Component } from "react";
+// custom components
 import QuickLayout from "../../components/QuickLayout";
-import CreateWorkoutForm from "./components/CreateWorkoutForm";
+import EditIntervalForm from "./components/EditIntervalFrom";
 
-class CreateWorkout extends Component {
+class EditInterval extends Component {
    render() {
+      const { id } = this.props.match.params;
       return (
          <React.Fragment>
             <QuickLayout onClick={this.props.history.goBack}>
-               <CreateWorkoutForm />
+               <EditIntervalForm id={id}/>
             </QuickLayout>
          </React.Fragment>
       );
    }
 }
 
-export default CreateWorkout;
+export default EditInterval;

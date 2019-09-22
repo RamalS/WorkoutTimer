@@ -4,7 +4,7 @@ import WorkoutBar from "./components/WorkoutBar";
 import Interval from "./components/Interval";
 import AddExcercise from "./components/AddExcercise";
 // services
-import JobService from "../../Service/Storage/WorkoutService";
+import WorkoutService from "../../Service/Storage/WorkoutService";
 
 import "./Workout.css";
 
@@ -17,10 +17,11 @@ class Workout extends Component {
       }
    };
 
-   componentDidMount() {
+   componentWillMount() {
       const { id } = this.props.match.params;
-      const workout = JobService.find("intervals", id);
-      this.setState({ ...this.state, workout });
+      WorkoutService.find("interval", id).then(respones => {
+         this.setState({ ...this.state, workout: respones });
+      });
    }
 
    render() {

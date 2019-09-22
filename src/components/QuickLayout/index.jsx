@@ -5,13 +5,13 @@ import "./QuickLayout.css";
 
 class QuickLayout extends Component {
    render() {
-      const { path } = this.props;
+      const { onClick } = this.props;
       return (
          <React.Fragment>
             <div className="quick-layout">
-               <Link to={path}>
+               <button onClick={onClick}>
                   <MaterialIcon icon="clear" size={40} />
-               </Link>
+               </button>
                <div className="clearfix" />
                <div className="children">{this.props.children}</div>
             </div>

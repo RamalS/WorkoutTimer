@@ -8,8 +8,8 @@ class CreateInterval extends Component {
       const { id } = this.props.match.params;
       return (
          <React.Fragment>
-            <QuickLayout path={`/workout/${id}`}>
-               <CreateIntervalForm id={id}/>
+            <QuickLayout onClick={this.props.history.goBack}>
+               <CreateIntervalForm id={id} />
             </QuickLayout>
          </React.Fragment>
       );

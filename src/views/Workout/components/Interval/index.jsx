@@ -34,13 +34,13 @@ class Interval extends Component {
    }
 
    render() {
-      const { data } = this.props;
+      const { data, workoutId } = this.props;
       return (
          <React.Fragment>
             <div className="interval">
                <div className="container" style={this.intervalContainerStyle}>
                   <ClickNHold
-                     time={0.4}
+                     time={0.3}
                      onStart={() =>
                         this.setState({ ...this.state, showOutline: true })
                      }
@@ -62,7 +62,7 @@ class Interval extends Component {
 
                <div className="edit" style={this.editStyle}>
                   <div className="container">
-                     <Link to={`/workout-edit/${data.id}`}>Edit</Link>
+                     <Link to={`/edit-interval/${data.id}`}>Edit</Link>
                      <button
                         onClick={() =>
                            this.setState({ ...this.state, showEdit: false })

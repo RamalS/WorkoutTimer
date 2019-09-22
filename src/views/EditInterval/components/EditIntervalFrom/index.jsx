@@ -2,24 +2,35 @@ import React, { Component } from "react";
 // services
 import IntervalService from "../../../../Service/Storage/IntervalService";
 
-class CreateIntervalForm extends Component {
+class EditIntervalForm extends Component {
    constructor() {
       super();
       this.state = {
          formFileds: {
             name: "",
             duration: ""
-         }
+         },
+         interval: {}
       };
    }
 
-   onSubmit = e => {
+   componentDidMount() {
       const { id } = this.props;
-      const { formFileds } = this.state;
+      IntervalService.find(id, null).then(response => {
+         this.setState({
+            ...this.state,
+            formFileds: { name: response.name, duration: response.duration },
+            interval: response
+         });
+      });
+   }
+
+   onSubmit = e => {
+      const { formFileds, interval } = this.state;
 
       e.preventDefault();
-      IntervalService.create({
-         workoutId: id,
+      IntervalService.update({
+         ...interval,
          name: formFileds.name,
          duration: formFileds.duration
       })
@@ -66,7 +77,7 @@ class CreateIntervalForm extends Component {
                <input
                   type="submit"
                   className="classic-input btn-primary"
-                  value="Create"
+                  value="Update"
                />
             </form>
          </React.Fragment>
@@ -74,4 +85,4 @@ class CreateIntervalForm extends Component {
    }
 }
 
-export default CreateIntervalForm;
+export default EditIntervalForm;

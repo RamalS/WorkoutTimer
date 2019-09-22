@@ -17,7 +17,9 @@ class MyWorkouts extends Component {
    }
 
    componentDidMount() {
-      this.setState({ ...this.state, workouts: WorkoutService.find() });
+      WorkoutService.find().then(response => {
+         this.setState({ ...this.state, workouts: response });
+      });
    }
 
    render() {

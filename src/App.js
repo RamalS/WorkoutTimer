@@ -4,6 +4,7 @@ import Main from "./views/Main";
 import MyWorkouts from "./views/MyWorkouts";
 import CreateWorkout from "./views/CreateWorkout";
 import CreateInterval from "./views/CreateInterval";
+import EditInterval from "./views/EditInterval";
 import Workout from "./views/Workout";
 
 import "./App.css";
@@ -17,6 +18,7 @@ function App() {
             <Route component={CreateWorkout} path="/create-workout" />
             <Route component={Workout} path="/workout/:id" />
             <Route component={CreateInterval} path="/create-interval/:id" />
+            <Route component={EditInterval} path="/edit-interval/:id" />
          </Router>
       </div>
    );

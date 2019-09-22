@@ -16,8 +16,11 @@ class CreateWorkoutForm extends Component {
       const { formFileds } = this.state;
 
       e.preventDefault();
-      WorkoutService.create(formFileds.name);
-      this.setState({ ...this.state, formFileds: { name: "" } });
+      WorkoutService.create(formFileds.name)
+         .then(response => {
+            this.setState({ ...this.state, formFileds: { name: "" } });
+         })
+         .catch(err => {});
    };
 
    onChange = e => {
