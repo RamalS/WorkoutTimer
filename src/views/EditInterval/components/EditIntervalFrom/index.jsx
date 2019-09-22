@@ -37,7 +37,8 @@ class EditIntervalForm extends Component {
          .then(response => {
             this.setState({
                ...this.state,
-               formFileds: { name: "", duration: "" }
+               formFileds: { name: response.name, duration: response.duration },
+               interval: response
             });
          })
          .catch(err => {});

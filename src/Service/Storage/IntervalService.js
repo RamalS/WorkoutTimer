@@ -32,6 +32,6 @@ export default class IntervalService {
    }
 
    static async update(model) {
-      updateTable("interval", model);
+      return await updateTable("interval", model);
    }
 }

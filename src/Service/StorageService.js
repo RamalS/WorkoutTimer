@@ -37,4 +37,5 @@ export const updateTable = (tableName, object) => {
    let data = items.find(d => d.id === object.id);
    items.splice(items.indexOf(data), 1, object);
    ls.set(tableName, items);
+   return object;
 };

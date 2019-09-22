@@ -30,10 +30,10 @@
    background: #ffffff;
    height: 50px;
    width: 96%;
-   border-radius: 0 0 10px 10px; 
+   border-radius: 0 0 10px 10px;
 }
 
-.interval .edit .container{
+.interval .edit .container {
    display: grid;
    grid-template-columns: 50% 50%;
    width: 50%;
@@ -44,9 +44,10 @@
 .interval .edit a {
    font-size: 1.3em;
    color: #000000;
+   text-align: center;
 }
 
-.interval .edit button{
+.interval .edit button {
    font-size: 1.3em;
+   text-align: center;
 }
-
