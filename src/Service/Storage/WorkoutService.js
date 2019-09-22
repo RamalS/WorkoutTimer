@@ -1,8 +1,13 @@
-import { addToTable, getAllFromTable } from "../StorageService";
+import {
+   addToTable,
+   getAllFromTable,
+   removeFromTable
+} from "../StorageService";
+import uniqid from "uniqid";
 
 export default class WorkoutService {
    static create(name) {
-      addToTable("workout", { name, workouts: {} });
+      addToTable("workout", { id: uniqid(), name, workouts: {} });
    }
 
    static find() {
@@ -12,5 +17,9 @@ export default class WorkoutService {
       });
 
       return workoutNames;
+   }
+
+   static delete(id) {
+      removeFromTable("workout", id);
    }
 }

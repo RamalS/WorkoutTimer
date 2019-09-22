@@ -18,6 +18,7 @@ class MyWorkouts extends Component {
 
    componentDidMount() {
       this.setState({ ...this.state, workouts: WorkoutService.find() });
+      WorkoutService.delete("k0uno1ba");
    }
 
    render() {

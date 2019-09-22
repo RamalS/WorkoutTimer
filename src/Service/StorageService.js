@@ -1,8 +1,9 @@
 import ls from "local-storage";
 
 export const addToTable = (tableName, object) => {
+   let items = getAllFromTable(tableName);
    if (ls.get(tableName) !== null) {
-      ls.set(tableName, [...ls.get(tableName), object]);
+      ls.set(tableName, [...items, object]);
    } else {
       ls.set(tableName, [object]);
    }
@@ -18,10 +19,17 @@ export const getAllFromTable = tableName => {
 };
 
 export const removeFromTable = (tableName, id) => {
-   let tableData = ls.get(tableName);
-   tableData.splice(id - 1, 1);
-   ls.set(tableName, tableData);
-   return tableData;
+   let items = ls.get(tableName);
+
+   let object = items.find(o => o.id === id);
+   let objectIndex = items.indexOf(object);
+
+   if (objectIndex >= 0) {
+      items.splice(objectIndex, 1);
+      ls.set(tableName, items);
+   }
+
+   return items;
 };
 
 export const updateTable = (tableName, object) => {};
