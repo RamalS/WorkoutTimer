@@ -6,8 +6,9 @@
     "local-storage": "^2.0.0",
     "material-icons": "^0.3.1",
     "material-icons-react": "^1.0.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-click-n-hold": "^1.0.6",
+    "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "uniqid": "^5.0.3"
