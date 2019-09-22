@@ -8,14 +8,14 @@ import uniqid from "uniqid";
 
 export default class WorkoutService {
    static create(name) {
-      addToTable("workout", { id: uniqid(), name, workouts: [] });
+      addToTable("workout", { id: uniqid(), name, intervals: [] });
    }
 
    static find(includeItems, id) {
-      const workouts = getAllFromTable("workout");
-      let search = workouts;
+      const intervals = getAllFromTable("workout");
+      let search = intervals
 
-      const workoutNames = workouts.map(workout => {
+      const workoutNames = intervals.map(workout => {
          return { id: workout.id, name: workout.name };
       });
 

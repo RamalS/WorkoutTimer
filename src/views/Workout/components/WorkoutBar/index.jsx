@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import MaterialIcon, { colorPalette } from "material-icons-react";
+import MaterialIcon from "material-icons-react";
+import { Link } from "react-router-dom";
 
 import "./WorkoutBar.css";
 
@@ -10,7 +11,7 @@ class WorkoutBar extends Component {
       return (
          <React.Fragment>
             <div className="workout-bar">
-               <h2>{name}</h2>
+               <h2><Link to="/my-workouts">{name}</Link></h2>
                <button>
                   <div className="start">
                      <MaterialIcon icon="arrow_right" color="#ffffff" />

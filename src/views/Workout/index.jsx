@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // custom components
 import WorkoutBar from "./components/WorkoutBar";
-import Rep from "./components/Rep";
+import Interval from "./components/Interval";
 import AddExcercise from "./components/AddExcercise";
 // services
 import JobService from "../../Service/Storage/WorkoutService";
@@ -11,14 +11,15 @@ import "./Workout.css";
 class Workout extends Component {
    state = {
       workout: {
+         id: "",
          name: "",
-         workouts: []
+         intervals: []
       }
    };
 
    componentDidMount() {
       const { id } = this.props.match.params;
-      const workout = JobService.find("workouts", id);
+      const workout = JobService.find("intervals", id);
       this.setState({ ...this.state, workout });
    }
 
@@ -28,10 +29,10 @@ class Workout extends Component {
          <React.Fragment>
             <div className="workout">
                <WorkoutBar name={workout.name} />
-               {workout.workouts.map((data, i) => (
-                  <Rep key={i} data={data} />
+               {workout.intervals.map((data, i) => (
+                  <Interval key={i} data={data} />
                ))}
-               <AddExcercise />
+               <AddExcercise path={`/create-interval/${workout.id}`} />
             </div>
          </React.Fragment>
       );

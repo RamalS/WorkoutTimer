@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-import "./Rep.css";
+import "./Interval.css";
 
-class Rep extends Component {
+class Interval extends Component {
    state = {};
    render() {
       const { data } = this.props;
       return (
          <React.Fragment>
-            <div className="rep">
+            <div className="interval">
                <div className="type">
-                  <p>{data.type}</p>
+                  <p>{data.name}</p>
                </div>
                <div className="duration">
                   <p>{data.duration}</p>
@@ -21,4 +21,4 @@ class Rep extends Component {
    }
 }
 
-export default Rep;
+export default Interval;
