@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Speech from "speak-tts";
 // custom components
 import WorkoutBar from "./components/WorkoutBar";
 import Interval from "./components/Interval";
@@ -20,11 +21,38 @@ class Workout extends Component {
             id: "",
             name: "",
             intervals: []
-         }
+         },
+         intervals: []
       };
    }
 
    componentWillMount() {
+      this.fetchData();
+   }
+
+   workoutInterval = () => {
+      const { intervals, workout } = this.state;
+
+      if (this.duration >= workout.intervals[this.index].duration) {
+         intervals[this.index].show = false;
+         this.setState({ ...this.state, startWorkout: false });
+         this.duration = 0;
+         if (this.index + 1 < intervals.length) {
+            this.index++;
+            this.speek();
+         } else {
+            this.index = 0;
+            this.fetchData();
+            clearInterval(this.intervalId);
+         }
+      } else {
+         this.duration++;
+         intervals[this.index].duration -= 1;
+         this.setState({ ...this.state });
+      }
+   };
+
+   fetchData = () => {
       const { id } = this.props.match.params;
       WorkoutService.find("interval", id).then(response => {
          let intervals = response.intervals.map(interval => {
@@ -33,42 +61,36 @@ class Workout extends Component {
 
          this.setState({
             ...this.state,
-            workout: {
-               ...response,
-               intervals
-            }
+            workout: response,
+            intervals
          });
       });
-   }
-
-   workoutInterval = () => {
-      const { workout } = this.state;
-      const { intervals } = workout;
-
-      if (this.duration >= intervals[this.index].duration) {
-         intervals[this.index].show = false;
-         this.setState({ ...this.state, startWorkout: false });
-         clearInterval(this.intervalId);
-      } else {
-         this.duration++;
-         console.log(this.duration);
-      }
    };
 
+   speek = () => {
+      const { intervals } = this.state;
+      const speech = new Speech();
+      speech
+         .speak({
+            text: `Hell, ${intervals[this.index].name} for ${intervals[this.index].duration} seconds`
+         })
+         .then(() => {})
+         .catch(e => {});
+   };
 
    onStart = () => {
       this.setState({ ...this.state, startWorkout: true });
-      this.intervalId = setInterval(this.workoutInterval, 100);
+      this.intervalId = setInterval(this.workoutInterval, 1000);
+      this.speek();
    };
 
    render() {
-      const { workout } = this.state;
-      console.log(this.state);
+      const { workout, intervals } = this.state;
       return (
          <React.Fragment>
             <div className="workout">
                <WorkoutBar name={workout.name} onStart={this.onStart} />
-               {workout.intervals.map((data, i) => (
+               {intervals.map((data, i) => (
                   <Interval key={i} data={data} />
                ))}
                <AddExcercise path={`/create-interval/${workout.id}`} />
