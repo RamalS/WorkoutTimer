@@ -11,6 +11,8 @@
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "speak-tts": "^2.0.8",
+    "text-to-speech-js": "^1.1.9",
     "uniqid": "^5.0.3"
   },
   "scripts": {

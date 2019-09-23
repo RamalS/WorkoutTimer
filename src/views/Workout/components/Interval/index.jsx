@@ -33,11 +33,21 @@ class Interval extends Component {
       return border;
    }
 
+   get intervalStyle() {
+      const { data } = this.props;
+      let display = "none";
+      if (data.show) {
+         display = "block";
+      }
+
+      return { display };
+   }
+
    render() {
       const { data, workoutId } = this.props;
       return (
          <React.Fragment>
-            <div className="interval">
+            <div className="interval" style={this.intervalStyle}>
                <div className="container" style={this.intervalContainerStyle}>
                   <ClickNHold
                      time={0.3}
