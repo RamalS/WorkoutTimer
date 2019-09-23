@@ -1,0 +1,19 @@
+.quick-layout {
+   background: #ffffff;
+   color: #000000;
+}
+
+.quick-layout .top {
+   margin-bottom: 100px;
+}
+
+.quick-layout button {
+   float: right;
+}
+
+.quick-layout .children {
+   display: block;
+   margin: auto;
+   margin-top: 100px;
+   width: 90%;
+}

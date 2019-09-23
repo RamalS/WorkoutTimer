@@ -1,0 +1,53 @@
+.interval {
+   width: 90%;
+   min-height: 50px;
+   margin: 20px auto;
+   border-radius: 10px;
+}
+
+.interval .container {
+   display: grid;
+   grid-template-columns: 80% auto;
+}
+
+.interval .container .type {
+   background: #1e2019;
+   padding: 15px 10px;
+   color: #f3e9dc;
+   border-radius: 10px 0 0 10px;
+}
+
+.interval .container .duration {
+   padding: 15px 20px;
+   background: #ad343e;
+   color: #f3e9dc;
+   border-radius: 0 10px 10px 0;
+}
+
+.interval .edit {
+   display: none;
+   margin: auto;
+   background: #ffffff;
+   height: 50px;
+   width: 96%;
+   border-radius: 0 0 10px 10px;
+}
+
+.interval .edit .container {
+   display: grid;
+   grid-template-columns: 50% 50%;
+   width: 50%;
+   margin: auto;
+   padding-top: 15px;
+}
+
+.interval .edit a {
+   font-size: 1.3em;
+   color: #000000;
+   text-align: center;
+}
+
+.interval .edit button {
+   font-size: 1.3em;
+   text-align: center;
+}
