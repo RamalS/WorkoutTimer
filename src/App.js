@@ -6,21 +6,22 @@ import CreateWorkout from "./views/CreateWorkout";
 import CreateInterval from "./views/CreateInterval";
 import EditInterval from "./views/EditInterval";
 import Workout from "./views/Workout";
+import DesktopLayout from "./components/DesktopLayout";
 
 import "./App.css";
 
 function App() {
    return (
-      <div className="App">
-         <Router>
-            <Route component={Main} exact path="/" />
-            <Route component={MyWorkouts} path="/my-workouts" />
-            <Route component={CreateWorkout} path="/create-workout" />
-            <Route component={Workout} path="/workout/:id" />
-            <Route component={CreateInterval} path="/create-interval/:id" />
-            <Route component={EditInterval} path="/edit-interval/:id" />
-         </Router>
-      </div>
+      <React.Fragment>
+            <Router>
+               <Route component={Main} exact path="/" />
+               <Route component={MyWorkouts} path="/my-workouts" />
+               <Route component={CreateWorkout} path="/create-workout" />
+               <Route component={Workout} path="/workout/:id" />
+               <Route component={CreateInterval} path="/create-interval/:id" />
+               <Route component={EditInterval} path="/edit-interval/:id" />
+            </Router>
+      </React.Fragment>
    );
 }
 

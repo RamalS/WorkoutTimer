@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ClickNHold from "react-click-n-hold";
 
 import "./Workout.css";
 
 class Workout extends Component {
-   state = {};
+   constructor(props) {
+      super(props);
+      this.state = {};
+   }
+
    render() {
       const { data } = this.props;
       return (

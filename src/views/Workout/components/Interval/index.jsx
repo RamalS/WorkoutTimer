@@ -44,7 +44,7 @@ class Interval extends Component {
    }
 
    render() {
-      const { data, workoutId } = this.props;
+      const { data, onDelete } = this.props;
       return (
          <React.Fragment>
             <div className="interval" style={this.intervalStyle}>
@@ -73,6 +73,11 @@ class Interval extends Component {
                <div className="edit" style={this.editStyle}>
                   <div className="container">
                      <Link to={`/edit-interval/${data.id}`}>Edit</Link>
+                     <button
+                        onClick={onDelete.bind(this, data.id, data.workoutId)}
+                     >
+                        Delete
+                     </button>
                      <button
                         onClick={() =>
                            this.setState({ ...this.state, showEdit: false })

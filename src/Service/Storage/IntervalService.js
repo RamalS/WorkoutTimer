@@ -7,8 +7,9 @@ import {
 import uniqid from "uniqid";
 
 export default class IntervalService {
+   static tableName = "interval";
    static async create(model) {
-      addToTable("interval", {
+      addToTable(this.tableName, {
          id: uniqid(),
          workoutId: model.workoutId,
          name: model.name,
@@ -17,7 +18,7 @@ export default class IntervalService {
    }
 
    static async find(id, workoutId) {
-      let items = await getAllFromTable("interval");
+      let items = await getAllFromTable(this.tableName);
       let intervals = items;
 
       if (id) {
@@ -32,6 +33,10 @@ export default class IntervalService {
    }
 
    static async update(model) {
-      return await updateTable("interval", model);
+      return await updateTable(this.tableName, model);
+   }
+
+   static async delete(id, workoutId) {
+      return await removeFromTable(this.tableName, id).filter(i => i.workoutId === workoutId);
    }
 }
