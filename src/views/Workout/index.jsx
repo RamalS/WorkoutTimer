@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Speech from "speak-tts";
+import NoSleep from "react-no-sleep";
 // custom components
 import WorkoutBar from "./components/WorkoutBar";
 import Interval from "./components/Interval";
@@ -24,6 +25,9 @@ class Workout extends Component {
          },
          intervals: []
       };
+
+      const noSleep = new NoSleep();
+      noSleep.handleEnable();
    }
 
    componentWillMount() {
