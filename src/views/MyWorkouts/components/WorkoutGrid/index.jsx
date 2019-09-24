@@ -6,7 +6,7 @@ class WorkoutGrid extends Component {
       const { workouts } = this.props;
       return (
          <React.Fragment>
-            <div>
+            <div className="workouts-container">
                {workouts.map((data, i) => (
                   <Workout key={i} data={data} />
                ))}

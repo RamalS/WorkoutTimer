@@ -11,7 +11,7 @@ import "./App.css";
 
 function App() {
    return (
-      <div className="App">
+      <React.Fragment>
          <Router>
             <Route component={Main} exact path="/" />
             <Route component={MyWorkouts} path="/my-workouts" />
@@ -20,7 +20,7 @@ function App() {
             <Route component={CreateInterval} path="/create-interval/:id" />
             <Route component={EditInterval} path="/edit-interval/:id" />
          </Router>
-      </div>
+      </React.Fragment>
    );
 }
 

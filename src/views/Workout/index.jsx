@@ -28,6 +28,7 @@ class Workout extends Component {
       };
 
       this.noSleep = new NoSleep();
+      this.speech = new Speech();
 
       this.noSleep.handleEnable();
    }
@@ -53,6 +54,9 @@ class Workout extends Component {
          } else {
             this.index = 0;
             this.fetchData();
+            this.speech.speak({
+               text: `Workout is over`
+            });
             clearInterval(this.intervalId);
          }
       } else {
@@ -79,13 +83,12 @@ class Workout extends Component {
 
    speek = () => {
       const { intervals } = this.state;
-      const speech = new Speech();
-      speech
+      this.speech
          .speak({
-            text: `Hell, ${intervals[this.index].name} for ${intervals[this.index].duration} seconds`
+            text: `${intervals[this.index].name} for ${intervals[this.index].duration} seconds`
          })
          .then(() => {})
-         .catch(e => {});
+         .catch(() => {});
    };
 
    onStart = () => {
@@ -111,7 +114,6 @@ class Workout extends Component {
 
    render() {
       const { workout, intervals } = this.state;
-      console.log(this.state);
       return (
          <React.Fragment>
             <div className="workout">
