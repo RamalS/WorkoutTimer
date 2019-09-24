@@ -7,6 +7,7 @@ import Interval from "./components/Interval";
 import AddExcercise from "./components/AddExcercise";
 // services
 import WorkoutService from "../../Service/Storage/WorkoutService";
+import IntervalService from "../../Service/Storage/IntervalService";
 
 import "./Workout.css";
 
@@ -93,15 +94,31 @@ class Workout extends Component {
       this.speek();
    };
 
+   onDelete = (id, workoutId) => {
+      const { workout } = this.state;
+      IntervalService.delete(id, workoutId).then(response => {
+         let intervals = response.map(interval => {
+            return { ...interval, show: true };
+         });
+
+         this.setState({
+            ...this.state,
+            workout: { ...workout, intervals: intervals },
+            intervals
+         });
+      });
+   };
+
    render() {
       const { workout, intervals } = this.state;
+      console.log(this.state);
       return (
          <React.Fragment>
             <div className="workout">
                <WorkoutBar name={workout.name} onStart={this.onStart} />
                <div className="interval-container">
                   {intervals.map((data, i) => (
-                     <Interval key={i} data={data} />
+                     <Interval key={i} data={data} onDelete={this.onDelete} />
                   ))}
                </div>
                <AddExcercise path={`/create-interval/${workout.id}`} />
