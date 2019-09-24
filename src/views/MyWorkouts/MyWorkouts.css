@@ -20,6 +20,7 @@
 }
 
 .my-workouts .workouts-container {
+   margin-top: 50px;
    height: 80%;
    overflow-y: scroll;
 }

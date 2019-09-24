@@ -1,0 +1,26 @@
+.desktop-layout {
+   height: 100%;
+   background: #ffffff;
+}
+
+.desktop-layout img {
+   width: 450px;
+   z-index: -10;
+   margin-top: 100px;
+}
+
+.desktop-layout .container {
+   position: fixed;
+   z-index: 10;
+   height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+   .desktop-layout .container {
+      width: 215px;
+      height: 380px;
+      padding-left: 110px;
+      padding-top: 200px;
+      border-radius: 20px;
+   }
+}
