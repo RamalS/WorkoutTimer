@@ -26,12 +26,17 @@ class Workout extends Component {
          intervals: []
       };
 
-      const noSleep = new NoSleep();
-      noSleep.handleEnable();
+      this.noSleep = new NoSleep();
+
+      this.noSleep.handleEnable();
    }
 
    componentWillMount() {
       this.fetchData();
+   }
+
+   componentWillUnmount() {
+      this.noSleep.handleDisable();
    }
 
    workoutInterval = () => {
@@ -94,9 +99,11 @@ class Workout extends Component {
          <React.Fragment>
             <div className="workout">
                <WorkoutBar name={workout.name} onStart={this.onStart} />
-               {intervals.map((data, i) => (
-                  <Interval key={i} data={data} />
-               ))}
+               <div className="interval-container">
+                  {intervals.map((data, i) => (
+                     <Interval key={i} data={data} />
+                  ))}
+               </div>
                <AddExcercise path={`/create-interval/${workout.id}`} />
             </div>
          </React.Fragment>
